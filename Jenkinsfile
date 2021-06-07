@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Probando..'
+                echo 'Testing..'
                 nodejs('P1SA'){
                     sh 'npm test'
                 }
@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying..'
+                echo 'Deploying....'
             }
         }
     }
