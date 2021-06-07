@@ -5,8 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                nodejs('NodeJS'){
-                    sh 'npm --version'
+                nodejs('P1SA'){
                     sh 'npm install'
                     sh 'npm start &'
                 }
@@ -14,15 +13,15 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
-                nodejs('NodeJS'){
+                echo 'Probando..'
+                nodejs('P1SA'){
                     sh 'npm test'
                 }
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                echo 'Deploying..'
             }
         }
     }
