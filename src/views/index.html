@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="" content="">
+    <title> Calculadora </title>
+</head>
+
+<body>   
+    
+        <label>Numero 1:</label>
+        <input type="number" name="valor1" id="valor1">
+        <br/>
+        <br/>
+        <label>Numero 2:</label>
+        <input type="number" name="valor2" id="valor2">
+        <br/>
+        <br/>
+        <button onclick="suma(document.getElementById('valor1').value,document.getElementById('valor2').value)">Sumar</button>
+        <button onclick="resta(document.getElementById('valor1').value,document.getElementById('valor2').value)">Restar</button>
+        <button onclick="mult(document.getElementById('valor1').value,document.getElementById('valor2').value)">Multiplicar</button>
+        <button onclick="div(document.getElementById('valor1').value,document.getElementById('valor2').value)">Dividir</button>    
+</body>
+
+<script>
+    // Calculadora simple, suma, resta, multiplicación y división
+
+    async function suma(valor1, valor2){
+        var resultado = await fetch(`http://localhost:3000/sum/${valor1}/${valor2}`)
+            .then(response => response.json() )
+            .then(data=>{return data})
+        alert(resultado);
+    }
+
+    async function resta(valor1, valor2){
+        var resultado = await fetch(`http://localhost:3000/res/${valor1}/${valor2}`)
+            .then(response => response.json() )
+            .then(data=>{return data})
+        alert(resultado);
+    }
+
+    async function mult(valor1, valor2){
+        var resultado = await fetch(`http://localhost:3000/mult/${valor1}/${valor2}`)
+            .then(response => response.json() )
+            .then(data=>{return data})
+        alert(resultado);
+    }
+
+    async function div(valor1, valor2){
+        var resultado = await fetch(`http://localhost:3000/div/${valor1}/${valor2}`)
+            .then(response => response.json() )
+            .then(data=>{return data})
+        alert(resultado);
+    }
+
+
+</script>
+</HTML>
